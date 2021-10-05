@@ -49,6 +49,12 @@ const resetGame = function () {
   generatedNumber = createNumber();
 };
 resetGame();
+input.addEventListener('keypress', function (e) {
+  console.log(e);
+  if (e.key === 'Enter') {
+    guessIt();
+  }
+});
 confirmBtn.addEventListener('click', guessIt);
 againBtn.addEventListener('click', resetGame);
 
