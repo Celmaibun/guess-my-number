@@ -11,9 +11,15 @@ let generatedNumber = 0;
 let score = 20;
 let highscore = 0;
 
+let audio = new Audio('hey.mp3');
+
 const guessIt = function () {
   let inputValue = Number(input.value);
-
+  if (inputValue === 69) {
+    document.body.style = 'background-image: url("ye.jpg");';
+    messageSpan.textContent = `YEYEYEA`;
+    audio.play();
+  }
   if (inputValue === generatedNumber) {
     messageSpan.textContent = `BRAWO KURWA, BRAWO DEBILU`;
     highscore += score;
