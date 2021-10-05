@@ -6,6 +6,7 @@ const scoreSpan = document.querySelector('.score');
 const highscoreSpan = document.querySelector('.highscore');
 const messageSpan = document.querySelector('.message');
 const numberSpan = document.querySelector('.number');
+const guessSpan = document.querySelector('.header-guess');
 
 let generatedNumber = 0;
 let score = 20;
@@ -19,10 +20,15 @@ const guessIt = function () {
     document.body.style = 'background-image: url("ye.jpg");';
     messageSpan.textContent = `YEYEYEA`;
     audio.play();
+    numberSpan.textContent = '';
+    scoreSpan.textContent = '';
+    highscoreSpan.textContent = '';
+    guessSpan.textContent = 'YOU ARE GAY';
+    return;
   }
   if (inputValue === generatedNumber) {
     messageSpan.textContent = `BRAWO KURWA, BRAWO DEBILU`;
-    highscore += score;
+    highscore = score;
     highscoreSpan.textContent = highscore;
     numberSpan.textContent = generatedNumber;
     document.body.style = 'background-color: #60b347;';
@@ -38,6 +44,7 @@ const guessIt = function () {
 const reduceScore = () => {
   score--;
   scoreSpan.textContent = score;
+  input.value = '';
 };
 
 const resetGame = function () {
@@ -48,11 +55,14 @@ const resetGame = function () {
   };
   document.body.style = 'background-color: #222;';
   score = 20;
+  highscore = highscore;
+  highscoreSpan.textContent = highscore;
   scoreSpan.textContent = score;
   numberSpan.textContent = '?';
   input.value = '';
   messageSpan.textContent = 'Zacznij zgadywać...';
   generatedNumber = createNumber();
+  audio.pause();
 };
 resetGame();
 input.addEventListener('keypress', function (e) {
